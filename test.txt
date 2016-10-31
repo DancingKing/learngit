@@ -2,3 +2,4 @@ aaaaaaaaaaaa
 bbbbbbbbbbb
 cccccccccc
 eeeeee
+Creating a new branch is quick.
