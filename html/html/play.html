@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<link rel="Shortcut Icon" href="../img/icon2.ico">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+		<meta name="renderer" content="webkit">
+		<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+		<!--html5shiv.min.js解决IE对html5的支持-->
+		<!--respond.js解决IE8对CSS3 Media Query支持-->
+		<!--[if lt IE 9]>
+      <script src="js/html5shiv.min.js"></script>
+      <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+		<title>视频播放</title>
+		
+		<link rel="stylesheet" href="../css/com-2.css" />
+		<link rel="stylesheet" href="../css/play.css" />
+		<link rel="stylesheet" type="text/css" href="../css/bekle.css" />
+	</head>
+
+	<body>
+		<div class="nav">
+			<ul class="nav-ul">
+				<h1><img src="../img/logo.png"/></h1>
+				<li>
+					<a  href="../index.html">首页</a>
+				</li>
+				<li>
+					<a href="kczx.html">教程</a>
+				</li>
+				<li>
+					<a href="http://bbs.indecogames.com/">论坛</a>
+				</li>
+				<li>
+					<a href="aboutus.html">关于我们</a>
+				</li>
+
+			</ul>
+		</div>
+		<div class="video-out">
+			<div class="video">
+
+				<div id="videoPlayer">
+					Loading the player ...
+				</div>
+			</div>
+
+		</div>
+		<div class="main-out">
+			<div class="main">
+				<div class="main-left">
+					<div class="list-tit">
+						课时列表
+					</div>
+					<div class="class-list">
+						<h3><span class="class-tit">***课程</span>(共<span class="keshi">13</span>课时)</h3>
+						<ul>
+							<li>
+								<p>小节1：只需要一步就能把虚拟货币换成人民币。</p><span>08:30</span></li>
+							<li>
+								<p>小节1：只需要一步就能把虚拟货币换成人民币。</p><span>08:30</span></li>
+							<li>
+								<p>小节1：只需要一步就能把虚拟货币换成人民币。</p><span>08:30</span></li>
+							<li>
+								<p>小节1：只需要一步就能把虚拟货币换成人民币。</p><span>08:30</span></li>
+							<li>
+								<p>小节1：只需要一步就能把虚拟货币换成人民币。</p><span>08:30</span>
+							</li>
+							
+						</ul>
+					</div>
+				</div>
+				<div class="main-right">
+					<ul id="aboutClass">
+						<h3>相关课程</h3>
+						<li>
+							<dl class="class-con-dl">
+								<dt class="tj-class">
+								<img class="icon" src=""/>
+								<a class="describe">
+									<p>
+										如何用html5做到一秒10刀教学，学会后便可无敌于天下，傲笑排位
+									</p>
+								</a>
+							</dt>
+								<dd>
+									<p class="class-title"></p>
+
+								</dd>
+							</dl>
+						</li>
+						<li>
+							<dl class="class-con-dl">
+								<dt class="tj-class">
+								<img class="icon" src=""/>
+								<a class="describe">
+									<p>
+										如何用html5做到一秒10刀教学，学会后便可无敌于天下，傲笑排位
+									</p>
+								</a>
+							</dt>
+								<dd>
+									<p class="class-title"></p>
+
+								</dd>
+							</dl>
+						</li>
+
+					</ul>
+				</div>
+			</div>
+
+		</div>
+		<div id="footer">
+			<div class="footer-content">
+				<p class="item">Copyright&copy;2015 北京世易互联信息技术有限公司 @版权所有</p>
+				<p class="item">地址：北京市海淀区清河嘉园甲一号A座1543室</p>
+				<p class="item">联系电话：010-57118778</p>
+				<p class="item">京ICP备16021698号</p>
+			</div>
+		</div>
+
+		<script src="../js/jquery-1.10.2.js"></script>
+		<script src="../js/jwplayer.js"></script>
+		<script src="../js/cookie.js"></script>
+		<script type="text/javascript">
+			jwplayer.key = "bAoNHra71KE/mHvb0sirT4HeWLTAkpiYa1mVsA==";
+			var classId = cookie.get("sendId");
+			var classType = cookie.get("sendType");
+			var classListIndex = cookie.get("classListIndex");
+			var videoSrc = '';
+			var player = '';
+			$.get("allClass.json", function(data) {
+
+				var dataList = data[classType];
+				var str = '';
+				for(var i = 0; i < dataList.length; i++) {
+					if(classId == dataList[i].id) {
+						$(".class-tit").html(dataList[i].title.split("-")[1]);
+						$(".keshi").html(dataList[i].classNums);
+						videoSrc = dataList[i].src + dataList[i].type + "/" + dataList[i].id + "/" + classListIndex + ".flv";
+						player = jwplayer("videoPlayer").setup({
+							"width": "100%",
+							"height": "100%",
+							"image": "../img/video-img.jpg",
+							"file": videoSrc,
+							"skin": "bekle",
+							"flashplayer": "../js/jwplayer.flash.swf",
+							"id": "videoPlayer",
+							"autostart": true,
+							"logo.hide": true,
+						});
+						for(var j = 0; j < dataList[i].classList.length; j++) {
+							str += "<li><p>小节" + (j + 1) + "：" + dataList[i].classList[j].title + "</p><span>" + dataList[i].classList[j].time + "</span></li>"
+						}
+
+						$(".class-list ul").html(str);
+						$(".class-list ul li").eq(classListIndex - 1).css({
+							"background-image": "url(../img/pause-btn.png)",
+							"color": "#fff",
+							"background-color": "#285e8e"
+						});
+
+						/*相关课程*/
+						for(var j = 0; j < 2; j++) {
+							var x = (i + j + 1) % dataList.length;
+							$(".tj-class").eq(j).attr("classId", dataList[x].id);
+							$(".tj-class").eq(j).attr("classType", dataList[x].type);
+
+							$("#aboutClass").find(".icon").eq(j).prop("src", "../img3/" + dataList[x].id + ".jpg");
+							$("#aboutClass").find(".class-title").eq(j).html(dataList[x].title.split("-")[1]);
+
+							$("#aboutClass").find(".describe p").eq(j).html(dataList[x].desc);
+						}
+						$("#aboutClass li").click(function() {
+							cookie.set("sendId", $(this).find("dt").attr("classId"), 1);
+							cookie.set("sendType", $(this).find("dt").attr("classType"), 1);
+							cookie.set("classListIndex", 1, 1)
+							window.location.reload();
+							window.scrollTo(0, 0);
+						})
+						$(".class-list ul li").click(function() {
+							/*cookie.set("liIndex",$(this).index(),1);*/
+							cookie.set("classListIndex", $(this).index() + 1, 1);
+							window.location.reload();
+							window.scrollTo(0, 0);
+							$(this).css("background", "url(../img/pause-btn.png) no-repeat left center;");
+							$(this).css("background-color", "#285e8e");
+						})
+						break;
+					}
+				}
+			})
+		</script>
+		<script>
+		</script>
+	</body>
+
+</html>

@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>历史版本</title>
+		<link rel="stylesheet" type="text/css" href="../css/com-2.css" />
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			
+			.left {
+				float: left;
+			}
+			
+			.right {
+				float: right;
+			}
+			
+			a {
+				text-decoration: none;
+				color: #fff;
+			}
+			
+			
+			
+			.main {
+				margin-top: 50px;
+				width: 100%;
+				font-size: 14px;
+				color: #333;
+				line-height: 22px;
+				height: 1140px;
+			}
+			
+			.container {
+				width: 1120px;
+				height: 1000px;
+				margin: 0 auto;
+				background: #ffffcb;
+				color: #ccc;
+				font-family: "microsoft yahei";
+				border: 1px solid #000000;
+				padding: 10px 40px 80px;
+				position: relative;
+			}
+			
+			.container h3 {
+				margin-left: 20px;
+				text-indent: 10px;
+				width: 100%;
+				height: 50px;
+				line-height: 50px;
+				color: #000;
+				border-bottom: 1px solid #cbcbcd;
+			}
+			
+			.left-back {
+				width: 70px;
+				margin-left: 20px;
+				margin-top: 10px;
+			}
+			
+			.left-circle {
+				display: block;
+				width: 70px;
+				line-height: 70px;
+				color: #fff;
+				font-size: 13px;
+				text-align: center;
+				height: 70px;
+				background: #2AABD2;
+				border-radius: 50%;
+			}
+			
+			.left-line {
+				display: block;
+				width: 1px;
+				height: 310px;
+				margin: 0 auto;
+				background: #2AABD2;
+			}
+			
+			.right-text {
+				width: 800px;
+				height: auto;
+				color: #333;
+			}
+			
+			.text-1 {
+				margin: 30px 0 0 15px;
+			}
+			
+			.text-1 h4 {
+				width: 100%;
+				height: 40px;
+				line-height: 40px;
+				font-family: "microsoft yahei";
+				font-size: 18px;
+				color: #000;
+				margin-bottom: 10px;
+			}
+			
+			.down-btn {
+				display: block;
+				width: 150px;
+				height: 45px;
+				text-align: center;
+				line-height:45px;
+				background-color: #337ae6;
+				border-color: #2e6da4;
+				cursor: pointer;
+				border: 1px solid transparent;
+				border-radius: 5px;
+				box-shadow: 3px 3px 5px #999;
+				font-size: 20px;
+				letter-spacing: 5px;
+				position: relative;
+			}	
+			.wait-down{
+				display: block;
+				width: 300px;
+				height: 20px;
+				line-height: 20px;
+				font-size: 14px;
+				color: #f00;
+				position: absolute;
+				left: 160px;
+				top: 25px;
+				letter-spacing: .2px;
+				display: none;
+			}
+			.down-btn:hover {
+				background-color: #337ab7;
+			}				
+		</style>
+	</head>
+
+	<body>
+		<div class="nav">
+			<ul class="nav-ul">
+				<h1><img src="../img/logo.png"/></h1>
+				<li>
+					<a href="../index.html">首页</a>
+				</li>
+				<li>
+					<a href="kczx.html">教程</a>
+				</li>
+				<li>
+					<a href="http://bbs.indecogames.com/">论坛</a>
+				</li>
+				
+				<li>
+					<a href="aboutus.html">关于我们</a>
+				</li>
+				
+			</ul>
+		</div>
+		<div class="main">
+			<div class="container">
+				<h3>引擎下载</h3>
+				<div class="left-back left">
+					<span class="left-circle">
+							2016/9/8
+					</span>
+					<span class="left-line"></span>
+					<span class="left-circle">
+							2016/7/14
+					</span>
+					<span class="left-line" style="height: 300px;"></span>
+					<span class="left-circle">
+							2016/3/20
+					</span>
+					<span class="left-line" style="height: 130px;"></span>
+
+				</div>
+				<div class="right-text left">
+					<div class="text-1">
+						<h4 style="font-size: 28px;line-height: 40px;height: 40px;margin-bottom: 0;">硬壳V1.03版本</h4>
+						<pre>
+							
+【1】 元件增加了规则模块
+【2】 增加了规则相关事件，可以执行规则和修改规则参数
+【3】 加入了新的数据类型-颜色型和元件型
+【4】 视图布局加入了"静态布局"在视图创建时自动开启，静态布局只执行一次且无法通过事件操作，静态无法指定进度条件，
+      可以给元件绑定一个元件类型的成员数据
+【5】 元件相关事件中的“元件定位”现在改为同时支持“临时数据”和“成员数据”
+【6】 碰撞检测修改，现在碰撞查询返回碰撞标识。并添加相应的表达式操作，可以通过碰撞标识访问到碰撞的属性。区域类
+      控件的自定数据改为绑定数据，可以绑定一个成员数据用于碰撞时传递
+【7】 动画编辑方式修改，添加了批量添加，添加空帧和添加附件。支持的层数增加到4层。
+【8】 动画控件和角色控件添加了修改动画附件的功能
+						</pre>
+						<p>
+							<a class="down-btn" >下载<span class="wait-down">当前版本正处于内测阶段，如有需求请联系我们</span></a>
+						</p>
+					</div>
+					<div class="text-1">
+						<h4>硬壳V1.02版本更新内容</h4>
+						<pre>
+【1】 元件和视图的 [ 数据 ] 增加"全局数据"模块，全局数据作为数据持久层，不会参与存档和读取。可以在事件和脚本中如同
+      成员数据一样方便的操作。在每个数据模块中可以对使用的全局数据进行注册，当该元件或视图创建时，如果没找到此全
+      局数据则自动添加。
+【2】 部分脚本函数修改
+      SET_GLOBAL与GET_GLOBAL废弃，新的接口为MEMORY 获得存档管理器，使用SetData和GetData设置数据
+      GET_RECORD废弃，新的接口为RECORD
+       添加新的接口GLOBAL 获得全局数据管理器，使用SetData和GetData设置数据，对应上面的新“全局数据”。原来的“游戏数据”改名
+       为“存档数据”仅作为存档使用。
+【3】 加入了网格控件，新的网格控件仅包括显示相关功能，网格数据属性每个网格对应一个字节，以字符形式表示网格图片的索引，
+      取值 0~9+A~Z，A =10 以此类推
+【4】 事件行增加了“禁用”功能，可以禁用单行
+      事件行增加了“输出”功能，类似LOG日志
+【5】 加了一种角色控件，可以指定顶层和底层两个动画，顶层动画存在时，底层动画隐藏，当顶层动画播放后消失时，播放底层动画
+						</pre>
+						
+					</div>
+					<div class="text-1" style="margin-top: 10px;">
+						<h4>硬壳V1.01版本更新内容</h4>
+						<pre>
+【1】 修复了模拟器随机种子无效的问题
+【2】 全局设定中的“元件深度”添加了“中心高度”选项，自动按照元件的Y位置作为元件深度，Y越大深度越小。
+【3】 添加了SET_GLOBAL和GET_GLOBAL两个函数设定和获取“游戏数据”（全局数据）
+【4】 所有对数据的脚本函数，都增加了对容器类的支持，Set格式为【 数据名称，键，值 】。Get格式为【 数据名称，键 】
+【5】 增加了新的控件类型 复合图片， 可以绘制纹理中的指定区域
+						</pre>
+
+					</div>
+				</div>
+				
+			</div>
+		</div>
+		<div id="footer">
+			<div class="footer-content" >
+				<p class="item">Copyright&copy;2015 北京世易互联信息技术有限公司 @版权所有</p>
+				<p class="item">地址：北京市海淀区清河嘉园甲一号A座1543室</p>
+				<p class="item">联系电话：010-57118778</p>
+				<p class="item">京ICP备16021698号</p>
+			</div>
+		</div>
+		<script>
+			var downBtn = document.getElementsByClassName("down-btn")[0];
+			var waitDown = document.getElementsByClassName("wait-down")[0];
+			downBtn.onclick = function(){
+				waitDown.style.display = "block";
+			}
+		</script>
+	</body>
+
+</html>

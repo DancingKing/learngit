@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>相关文章</title>
+		<link rel="stylesheet" href="../css/com-2.css" />
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			
+			img {
+				width: auto;
+				height: auto;
+			}
+			
+			body {
+				font-family: "microsoft yahei";
+				font-size: 14px;
+			}
+			
+			h1 {
+				height: 80px;
+				line-height: 80px;
+			}
+			
+			.main-out {
+				padding: 50px 0;
+				width: 100%;
+				height: auto;
+				background: #f5f5f5;
+			}
+			
+			.main {
+				width: 1040px;
+				padding: 80px;
+				padding-top: 0px;
+				min-height: 1200px;
+				margin: 0 auto;
+				background: #fff;
+			}
+			
+			.news-writer,
+			.state {
+				color: #999;
+				height: 30px;
+				line-height: 30px;
+			}
+			
+			.state {
+				border-bottom: 1px solid #ccc;
+				padding-bottom: 10px;
+				margin-bottom: 40px;
+			}
+			
+			p {
+				line-height: 28px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<!--导航栏-->
+		<div class="nav">
+			<ul class="nav-ul">
+				<h1><img src="../img/logo.png"/></h1>
+				<li>
+					<a href="../index.html">首页</a>
+				</li>
+				<li>
+					<a href="kczx.html">教程</a>
+				</li>
+				<li>
+					<a href="http://bbs.indecogames.com/">论坛</a>
+				</li>
+				<li>
+					<a href="aboutus.html">关于我们</a>
+				</li>
+			</ul>
+		</div>
+		<!--导航栏结束-->
+		<div class="main-out">
+			<div class="main">
+				<div class="content-wrapper">
+					<!-- 文章标题 -->
+					<div class="news-info clear">
+						<div class="news-title">
+							<h1>游戏中所存在的“真随机”与“伪随机”</h1>
+							<div class="news-writer clear">
+								<span class="writer"><a href="http://mp.sohu.com/profile?xpt=c29odW1wdHFndDZhQHNvaHUuY29t" target="_blank">GameRes游资网</a></span>
+							</div>
+						</div>
+
+						<div class="state"><span>声明：本文由入驻搜狐公众平台的作者撰写，除搜狐官方账号外，观点仅代表作者本人，不代表搜狐立场。</span>
+
+						</div>
+					</div>
+
+					<!-- 正文 -->
+					<div class="text clear" itemprop="articleBody">
+						<p>　　<span>写这篇随笔的动机，在于最近看了不少对于游戏中概率事件的提问，</span><span>在这些相关讨论里，总是能频繁看到“真随机”和“伪随机”这两个词汇。</span></p>
+						<p>　　<span>其中最常见的句子则莫过于宝典一般的——“程序里没有真随机”。</span><span>这句话本身当然是没有问题的。</span><span>但是大多数时候，用这句话去回复别人的疑问就有点风马牛不相及了。</span><span>导致这种情况的原因就在于，在不同的范畴，“真随机”和“伪随机”实际上是有着不同的定义。</span></p>
+						<p>　　<span>对概率提出疑问的游戏玩家问的基本上都是应用层面的随机问题，而回复者提到的却是程序原理上的真伪随机。</span><span>这样一来一回非但不能解释清楚游戏里的随机问题，反而会让看的人越来越迷茫。</span><span>所以，要想讲清楚这件事情，就必须把程序原理上的真伪随机和应用领域的真伪随机都详细说明一番。</span></p>
+						<p>　　<span>程序原理上的真伪随机</span></p>
+						<p>　　<span>对计算机有点了解的朋友都知道，在程序里，0就是0，1就是1，程序中是不存在可能为0也可能为1的数据的。</span></p>
+						<p>　　<span>所以，程序也就不能自己生成“随机”的东西。</span></p>
+						<p>　　<span>在程序原理上，真随机的定义是指，通过外置的观测设备，观测某个真正随机的事物的状态。</span></p>
+						<p>　　<span>在需要产生随机数的时候，记录该事物的状态值，再以此值经过一定的算法，得到一个真正的随机数。</span><span>(也有部分人认为宇宙中不存在真正随机的事物，所以宇宙中也没有真随机……这个争论太玄学，咱们就不搀和了。)</span></p>
+						<p>　　<span>所以，采用真随机对于程序来说，成本极高效率极低，在制作游戏的时候，没有人会蛋疼的买设备去做真随机。</span></p>
+						<p>　　<span>而相对于真随机的伪随机，就是指在系统内部抓取一个程序员自身无法预料准确值的值，把该值作为种子，放进随机数生成器，由此得到一连串随机数的方法。</span></p>
+						<p>　　<span>这句话听起来很拗口，实际上过程非常简单。在此我举一个最简单例子来说明：</span></p>
+						<p>　　<span>随机数生成器的核心部分是一个函数，函数就可以写成f(x)的形式，</span><span>这个x，就是一个随机种子，</span><span>x的确定标准就是要无法预测，比如说可以选取系统开始运行之后的时间(单位毫秒)，</span><span>然后把x放进f()，</span><span>根据函数的特效，x的值确定，f(x)的值就唯一且确定，</span><span>这个f(x)就是该随机数生成器生成的第一个随机数，我们记作R_1，</span></p>
+						<p>　　<span>(注：R1只是一个胚体，在实际调用的时候，还会用一个不可逆的处理方法使其变成我们需要的随机数——比如50到300之间的随机数，这个过程在此就略过不写了)</span></p>
+						<p>　　<span>然后如果还需要第二个随机数，就把R_1放进f()，得到第二个随机数R_2 = f(R_1)，</span></p>
+						<p>　　<span>然后如果还需要第三个随机数，就把R_2放进f()，得到第三个随机数R_3 = f(R_2)，</span></p>
+						<p>　　<span>以此类推</span></p>
+						<p>　　<span>R_1 = f(x)</span></p>
+						<p>　　<span>R_2 = f(R_1)</span></p>
+						<p>　　<span>R_3 = f(R_2)</span></p>
+						<p>　　<span>…</span></p>
+						<p>　　<span>R_n = f(R_ n-1)</span></p>
+						<p>　　<span>由此可以看出，一旦某个随机数生成器的种子确定，他之后所产生的每一个随机数就都确定了。</span></p>
+						<p>　　<span>随机数生成器就好比一副空白扑克，放入种子的过程就好比给每一张扑克都写上一个数字。</span><span>然后等着程序在需要的时候去一张张抽取调用。</span></p>
+						<p>　　<span>进而可以得到一个推论：如果两个随机数生成器的种子是一样的，那么他们这两副扑克的牌序也就都是一样的了。</span></p>
+						<p style="text-align: center;"><img width="394" src="http://img.mp.itc.cn/upload/20161027/0dc626f97bef43199304bb68ed7a6407_th.png"></p>
+						<p style="text-align: center;"><span>在同一时间创建三个随机数生成器，让他们的种子一致</span></p>
+						<p>　　<span>然后让他们轮流生成4个100以内的随机整数。</span></p>
+						<p style="text-align: center;"><img width="447" src="http://img.mp.itc.cn/upload/20161027/ddfc1da3f0cf44238e49641486f38548_th.png"></p>
+						<p>　　<span>可以看到，这三个随机数生成器在每一次生成的值都是一样的。</span></p>
+						<p>　　<span>这个推论在游戏中最常见的运用场景就是replay回放。</span><span>比如war3的录像回放，一个几十分钟的录像，大小只有几十K，</span></p>
+						<p>　　<span>这个录像文件中存放的实际上只有每一个玩家的有效操作，以及每一个随机数生成器的种子值。</span><span>然后根据这些内容，创建一场游戏，模拟重现整场战斗。</span></p>
+						<p>　　<span>录像文件是不会去记录每一个野怪的掉落，剑圣的每一刀是否暴击，牛头人是否能打出粉碎等等信息的，否则容量就会大大超标。这些随机的内容全部都是通过set种子值来重现。</span></p>
+						<p>　　<span>看到这里可能就会有不少玩家觉得很没劲，</span></p>
+						<p>　　<span>如果每一次随机的结果在游戏开始时就已经确定了，那随机还有什么意义，</span><span>这，就是一个很哲学的问题了。</span></p>
+						<p>　　<span>如果有一副空白扑克，上帝在每一张的上面都已经随便写上了一个数字。</span><span>如果你无法查看也无法修改这些数字，那么对于需要一张张摸牌的你来说，这些数字究竟算随机的还是确定的？</span></p>
+						<p>　　<span>每个人的看法或许都不一样。</span><span>但是，无论你的看法如何，至少在表现出来的效果上，这副牌就是随机的。</span></p>
+						<p>　　<span>同理对于程序中的种子随机：</span></p>
+						<p>　　<span>如果你无法查看也无法修改随机种子，那么程序用伪随机方法所产生的随机数在表现出来的效果上就等同于真随机。</span></p>
+						<p>　　<span>用伪随机进行大规模的模拟，其统计结果也会与数学计算出来的期望相符。</span></p>
+						<p>　　<span>如果你暴击率35%，每次攻击时程序产生一个1到10000之间的数，处于1到3500之间时就暴击。</span><span>连续攻击一万次，你暴击的次数就会在3500附近。</span></p>
+						<p>　　<span>至于第一万零一次会不会暴击？仍然是35%的几率暴，65%的几率不暴。</span></p>
+						<p style="text-align: center;"><img width="410" src="http://img.mp.itc.cn/upload/20161027/ecefd1e2ebd24145bacc99611c9a68d5.png"></p>
+						<p style="text-align: center;">模拟攻击一万次，暴击时计数+1</p>
+						<p style="text-align: center;"><img width="451" src="http://img.mp.itc.cn/upload/20161027/cc1474f1d2e742ea9ae71e95dd80315a_th.png"></p>
+						<p style="text-align: center;">暴击的次数</p>
+						<p>　　<span>应用层面的真伪随机</span></p>
+						<p>　　<span>在应用层面上，真随机就是指每一次几率判断都是独立的。</span></p>
+						<p>　　<span>比如说一个游戏角色的暴击率是20%，那么在真随机的机制下，他的每一次攻击都会是20%的几率暴击。</span></p>
+						<p>　　<span>前一刀暴击了，下一刀是20%暴率，前一刀没爆，下一刀也仍然是20%暴率。</span></p>
+						<p>　　<span>伪随机就是指同一类的概率事件，彼此之间存在关联性。</span><span>比如说一个游戏角色的暴击率是20%，那么在伪随机的机制下，这个角色每一次攻击的暴击率都是动态变化的。</span></p>
+						<p>　　<span>前一刀暴击了，后一刀的爆率就会降低；前一刀没爆，后一刀的爆率就会提升。但是，当这个玩家进行足够多次攻击之后，统计上的暴击率还是会等于20%。</span></p>
+						<p>　　<span>可以说，真随机是一种自然的随机机制，用代码来实现也非常容易，只需要用一个随机数与一个常量进行比较，根据大于小于等于分别触发不同的结果就行了。</span><span>而伪随机则是人为创造出来的一种机制，他需要程序员写下更多的代码，也需要数值设计者做更多的计算。</span></p>
+						<p>　　<span>那么，既然伪随机费时费力，还反自然，为什么在应用领域还要引入各种伪随机的算法呢？</span><span>其目的就在于——让用户得到更好的体验。</span></p>
+						<p>　　<span>我以抽奖为例，比如说某个游戏内置抽奖系统：</span></p>
+						<p>　　<span>抽奖每次消耗1块钱，有1%的几率得到一个价值90块的东西。</span></p>
+						<p>　　<span>有相当一部分参与者就会觉得，我先抽一下碰下运气，万一抽不到，我连抽100次，总归会拿到的吧，小亏一点点而已。</span></p>
+						<p>　　<span>但是实际上，连续抽奖100次而不中的概率高达36.6%——超过1/3的比例。</span></p>
+						<p>　　<span>甚至于即使连续抽300次，也仍然有4.9%的几率不中。</span></p>
+						<p>　　<span>也就是说，如果这个游戏有10万玩家，就有4900个人连续抽奖300次都中不了。</span></p>
+						<p>　　<span>而这部分玩家通常都不会心甘情愿的接受自己运气不好这个事实——他们之中一部分可能会心理受挫，删除游戏成为流失玩家；</span></p>
+						<p>　　<span>还有一部分则很可能会在网络上联合起来，产生一定的舆论压力。</span></p>
+						<p>　　<span>无论那一种情况，都是游戏设计者所不愿意见到的。而设计者为了避免这样的问题，就不得不考虑引入伪随机。</span></p>
+						<p>　　<span>从用户体验上来说，伪随机就是介于“真随机”和“不随机”之间的一种感觉。</span></p>
+						<p>　　<span>对于1%几率的抽奖，真随机就是上面我描述的情况。</span></p>
+						<p>　　<span>不随机就是固定的每隔99次之后中奖1次。</span></p>
+						<p>　　<span>伪随机就是中奖事件会分布得比真随机更加均匀，但还是具有一定的随机性。</span></p>
+						<p>　　<span>所以，伪随机并不是一个负面词汇。它存在的意义是为了让几率事件分布得更加均匀，避免让用户遇到极端走运或极端倒霉的情况。</span></p>
+						<p>　　<span>在讨论游戏概率的时候，让伪随机来为某些负面情绪背锅显然是不对的。</span></p>
+						<p>　　<span>最后，我大致说明一下最为常见的几种伪随机算法</span></p>
+						<ul>
+							<li>
+								<p><strong><span>PRD</span></strong></p>
+							</li>
+						</ul>
+						<p>　　<span>这是伪随机在游戏中最常见的用法，因此直接就被玩家用Pseudo Random Distribution的缩写PRD来指代了</span></p>
+						<p>　　<span>其中最为典型的案例就是WAR3，以及用WAR3编辑器制作的DOTA。</span></p>
+						<p>　　<span>在WAR3中，一个暴击率20%的英雄，并不是每一刀都20%暴击率的。</span></p>
+						<p>　　<span>而是以5.57%作为初始暴率，如果第一刀不暴，则第二刀的暴率增加到初始值的2倍：11.14%;</span></p>
+						<p>　　<span>如果还是不暴，就继续增加到初始值的3倍：16.71%，以此类推。</span></p>
+						<p>　　<span>而如果在这个过程中任何一次攻击打出了暴击，就会把暴击率重置到5.57%。</span></p>
+						<p style="text-align: center;"><img width="314" src="http://img.mp.itc.cn/upload/20161027/652dfaa01dee40d8a43a48b47eb59ab9.jpeg"></p>
+						<p style="text-align: center;"><img width="316" src="http://img.mp.itc.cn/upload/20161027/30cbd2750d7f4453849a30d4bd563463.jpeg"></p>
+						<p>　　<span>通过验算可以看到，暴雪以这种方式实现的暴击，最终表现出来的暴率仍然是20%。</span></p>
+						<p>　　<span>不过通常来说，PRD并不会在游戏中做实时的概率推算——做这样的逆运算会消耗太多的计算资源。</span></p>
+						<p>　　<span>据我推测，暴雪应该也是建立了一张lookup对照表，在游戏中根据理论暴率查表然后获得动态暴率的基础值。</span></p>
+						<ul>
+							<li>
+								<p><strong><span>洗牌算法</span></strong></p>
+							</li>
+						</ul>
+						<p>　　<span>洗牌算法最典型的应用莫过于音乐播放器的随机播放。</span></p>
+						<p>　　<span>在最早期的时候，播放器的随机播放就是采用的真随机。</span></p>
+						<p>　　<span>但是用户很快就发现，经常会遇到接连播放同一首歌，或者连续多次在几首歌之间来回切换，而另外某些歌曲几百次也放不到。</span></p>
+						<p>　　<span>为了解决这个问题，播放器就把真随机改为了洗牌算法。</span></p>
+						<p>　　<span>所谓的洗牌算法就是：如果你的歌单有20首歌，就建立一个1到20的数组，再把这20个数字像洗牌一样洗成乱序。</span></p>
+						<p>　　<span>在洗完之后，如果第一个数字是n，第一次就播放歌单里的第n首歌。以此类推。</span></p>
+						<p style="text-align: center;"><img width="417" src="http://img.mp.itc.cn/upload/20161027/d55b801024164ac382af3da74c4ba42c_th.png"></p>
+						<p style="text-align: center;"><img width="473" src="http://img.mp.itc.cn/upload/20161027/b2072e308578474f9a532bf28b4b8155_th.png"></p>
+						<ul>
+							<li>
+								<p><span><strong>组合随机</strong></span></p>
+							</li>
+						</ul>
+						<p>　　<span>说实话，其实我不确定这个能不能算作是一种伪随机。</span></p>
+						<p>　　<span>但是这种做法在现在的游戏界太过普遍，不得不拿出来说明一下。</span></p>
+						<p>　　<span>所谓的组合随机，典型的应用就是在抽奖的时候进行两次判断：</span></p>
+						<p>　　<span>一次不随机：根据预设好的确定数组，给予玩家对应的chest。</span></p>
+						<p>　　<span>这一次主要是用于确定奖品品质。</span></p>
+						<p>　　<span>一次真随机：从选中的chest中随机抽取一件物品给玩家。</span></p>
+						<p>　　<span>这一次就是从对应品质的奖品堆中随机获取一件物品。</span></p>
+						<p>　　<span>最典型的例子就是《我叫MT》的手游。</span></p>
+						<p>　　<span>在这个游戏里，你第几次抽奖能中紫卡是完全确定的，但是你具体抽到哪一张紫卡则是随机的。</span></p>
+					</div>
+					<!-- seo标签描述 -->
+					<div style="display:none;">
+						<span id="url" itemprop="url">http://mt.sohu.com/20161026/n471510653.shtml</span>
+						<span id="indexUrl" itemprop="indexUrl">mt.sohu.com</span>
+						<span id="isOriginal" itemprop="isOriginal">true</span>
+						<span id="sourceOrganization" itemprop="sourceOrganization" itemscope="" itemtype="http://schema.org/Organization"><span itemprop="name">GameRes游资网mp</span></span>
+						<span id="author" itemprop="author" itemscope="" itemtype="http://schema.org/Organization"><span itemprop="name"></span></span>
+						<span id="isBasedOnUrl" itemprop="isBasedOnUrl">http://mt.sohu.com/20161026/n471510653.shtml</span>
+						<span id="genre" itemprop="genre">report</span>
+						<span id="wordCount" itemprop="wordCount">7524</span>
+						<span id="description" itemprop="description">写这篇随笔的动机，在于最近看了不少对于游戏中概率事件的提问，在这些相关讨论里，总是能频繁看到“真随机”和“伪随机”这两个词汇。其中最常见的句子则莫过于宝典一般的</span>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="footer">
+			<div class="footer-content" style="height: 240px;">
+				<p class="item">Copyright&copy;2015 北京世易互联信息技术有限公司 @版权所有</p>
+				<p class="item">地址：北京市海淀区清河嘉园甲一号A座1543室</p>
+				<p class="item">联系电话：010-57118778</p>
+				<p class="item">京ICP备16021698号</p>
+			</div>
+		</div>
+
+	</body>
+
+</html>
